@@ -78,6 +78,7 @@ $task = mysqli_fetch_assoc($result);
                 <th>Completed</th>
                 <th>Description</th>
                 <th>Due Date</th>
+                <th></th>
             </tr>
             <?php
             // Loop result query all result
@@ -91,6 +92,7 @@ $task = mysqli_fetch_assoc($result);
                     <td><?php echo $task['complete'] == 1  ?  'true' : 'false';?> </td>
                     <td><?php echo $task['description'] ;?> </td>
                     <td><?php echo $task['due_date'] ;?> </td>
+                    <td> <a href="show.php?id=<?php echo $task['id'] ;?>">View details</a> </td>
                 </tr>
             <?php } ?>
         </table>
