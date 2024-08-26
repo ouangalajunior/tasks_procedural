@@ -1,5 +1,9 @@
 <?php
-
+// Regulate input with allow list 0 and 1 to prevent SQL injection
+$allowed = array("0", "1");
+if(isset($_GET['complete']) && in_array($_GET['complete'], $allowed)){
+    $complete = $_GET['complete'];
+}
 //1. Create et connect database
 // Database information
 /*
@@ -24,7 +28,16 @@ if (mysqli_connect_errno()) {
 
 //$sql = "SELECT * FROM  tasks LIMIT 1 ";
 //Display all task order by priority
-$sql = "SELECT * FROM  tasks ORDER BY priority ";
+//$sql = "SELECT * FROM  tasks ORDER BY priority ";
+
+//Query with filter for all task, completed  and incompleted tasks
+
+$sql = "SELECT * FROM  tasks ";
+if(isset($complete)){
+    $sql .= "WHERE complete = {$complete} ";
+}
+$sql .= "ORDER BY priority";
+
 $result = mysqli_query($db, $sql);
 
 // Test if query succeed
@@ -52,6 +65,11 @@ $task = mysqli_fetch_assoc($result);
 
     <section>
         <h2>Tasks list</h2>
+        <p>
+            <a href="index.php">All task</a>
+            <a href="index.php?complete=1">Complete</a>
+            <a href="index.php?complete=0">Incomplete</a>
+        </p>
 
         <table>
             <tr>
