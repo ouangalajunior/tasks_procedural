@@ -55,7 +55,6 @@ if(!$result){
     exit;
 }
 
-echo $complete;
 
 //3. Use returned data if any
 $new_id = mysqli_insert_id($db);

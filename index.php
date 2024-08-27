@@ -95,7 +95,8 @@ $task = mysqli_fetch_assoc($result);
                     <td><?php echo $task['complete'] == 1  ?  'true' : 'false';?> </td>
                     <td><?php echo $task['description'] ;?> </td>
                     <td><?php echo $task['due_date'] ;?> </td>
-                    <td> <a href="show.php?id=<?php echo $task['id'] ;?>">View details</a> </td>
+                    <td> <a href="show.php?id=<?php echo $task['id'] ;?>">View </a> </td>
+                    <td> <a href="edit.php?id=<?php echo $task['id'] ;?>">Edit</a> </td>
                 </tr>
             <?php } ?>
         </table>
