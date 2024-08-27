@@ -62,6 +62,9 @@ $task = mysqli_fetch_assoc($result);
         <h1> Task Managaer</h1>
     </header>
 
+    <nav>
+    <a href="new.php">+New task</a>
+</nav>
 
     <section>
         <h2>Tasks list</h2>
