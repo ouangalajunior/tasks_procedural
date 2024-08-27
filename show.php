@@ -80,6 +80,11 @@ if (is_null($task)) {
     <dt>Due date</dt>
     <dd><?php echo $task['due_date']; ?></dd>
 </dl>
+
+<hr>
+<form action="delete.php?id=<?php echo $task['id'] ?>" method="post" onsubmit="return confirm('Delete this task?');">
+    <input type="submit" value="Delete Task">
+</form>
 </body>
 
 </html>
